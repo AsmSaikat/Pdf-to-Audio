@@ -1,2 +1,2 @@
 # Pdf-to-Audio
-I tried making a program which will convert a pdf file to audio file. I used Python.
+Please consider putting the pdf file that you want to interact with within the same directory where this file located.

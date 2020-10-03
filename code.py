@@ -7,33 +7,33 @@ book = open(input("Please type you book's name: ") + ".pdf", "rb")
 # this will initialize the PdfFileReader object.
 pdf = PyPDF2.PdfFileReader(book)
 
-# using init function to get an engine instance for the speech synthesis.
+# using init function to get an engine instance for the speech synthesis-
 engine = pyttsx3.init()
 
 print("Please choose pages you want to create audiobook with-")
 start = input("Start: ")
 end = input("End: ")
 
-# now we will try verifying whether the start or end input is valid or not.
+# this will verify whether the start or end input is valid or not.
 try:
     int(start) and int(end)
 except ValueError:
     print("Please enter a valid number by running the program again.")
     exit()
 
-# creating a loop to specify the start and end range of the book's pages.
+# creating a loop to specify the start and end range of the book's pages-
 for num in range(int(start), int(end)):
     # using getPage() method to get specific pages.
     page = pdf.getPage(num)
 
-    # using extractText() to extract texts from pages.
+    # extracting texts from pages-
     text_extractor = page.extractText()
 
     # retrieving the value and selecting the WPM(Words Per Minute) rate of voices.
     voices = engine.getProperty("voices")
     rate = engine.setProperty("rate", int(input("Please select WPM: ")))
     
-    # selecting voice.
+    # selecting voice-
     print("Which voice would you prefer?")
     select = input("Type M for Male Voice or Type F for Female Voice: ")
     if select == "M" or select == "m":
